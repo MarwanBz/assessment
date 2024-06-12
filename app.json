@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "HelloWorld",
-    "slug": "expo-template-default",
+    "name": "assessment",
+    "slug": "assessment",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -13,13 +13,15 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.kakamer1998.assessment"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.kakamer1998.assessment"
     },
     "web": {
       "bundler": "metro",
@@ -31,6 +33,18 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a21c91d5-03a0-4af2-9ea1-a57081e27ca0"
+      }
+    },
+    "owner": "kaka.mer1998",
+    "updates": {
+      "url": "https://u.expo.dev/a21c91d5-03a0-4af2-9ea1-a57081e27ca0"
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
     }
   }
 }
