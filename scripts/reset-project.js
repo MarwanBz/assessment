@@ -44,7 +44,6 @@ const moveDirectories = async () => {
     // Create the app-example directory
     await fs.promises.mkdir(newDirPath, { recursive: true });
     console.log(`📁 /${newDir} directory created.`);
-
     // Move old directories to new app-example directory
     for (const dir of oldDirs) {
       const oldDirPath = path.join(root, dir);
@@ -56,11 +55,10 @@ const moveDirectories = async () => {
         console.log(`➡️ /${dir} does not exist, skipping.`);
       }
     }
-
     // Create new /app directory
     const newAppDirPath = path.join(root, newAppDir);
     await fs.promises.mkdir(newAppDirPath, { recursive: true });
-    console.log("\n📁 New /app directory created.");
+    console.log("\n📁 New /app directory created.")
 
     // Create index.tsx
     const indexPath = path.join(newAppDirPath, "index.tsx");
