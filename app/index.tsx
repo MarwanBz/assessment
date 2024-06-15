@@ -1,5 +1,3 @@
-// import * as ImageIcon from "@/assets/icons/BackGround";
-
 import {
   Image,
   ImageBackground,
@@ -9,16 +7,21 @@ import {
   View,
 } from "react-native";
 
+import { Onboarding } from "@/components/Onboarding";
+
 const imagePath = require("@/assets/images/background.png")
 
-export default function Onboarding() {
+export default function OnboardingScreen() {
   return (
     <View style={styles.image}>
       <ImageBackground
         style={styles.image}
         source={imagePath}
         resizeMode="cover"
-      ></ImageBackground>
+      >
+
+       <Onboarding /> 
+      </ImageBackground>
     </View>
   );
 }

@@ -6,6 +6,6 @@ export const Colors = {
     background: "#FEDE33",
     tint: tintColorLight,
     icon: "#687076",
-    gray: "#B2B0AD",
+    gray: "#7D7B7A",
   },
 };
