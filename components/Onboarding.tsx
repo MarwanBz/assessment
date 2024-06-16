@@ -1,6 +1,7 @@
 import { FlatList, StatusBar, StyleSheet, Text, View } from "react-native";
 
 import { OnboardingItem } from "./OnboardingItem";
+import { Pagination } from "./Pagination";
 import React from "react";
 // import { Cards,type data }  from "@/data/cards";
 import { data } from "@/data/cards";
@@ -22,10 +23,10 @@ export const Onboarding = () => {
         bounces={false}
         pagingEnabled
       />
+      <Pagination  />
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {

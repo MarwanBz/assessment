@@ -49,16 +49,15 @@ const styles = StyleSheet.create({
   card: {
     paddingTop: 80,
     paddingHorizontal: 20,
-    paddingVertical: 30,
   },
   description: {
     paddingVertical: 25,
     color: Colors.light.gray,
     maxWidth: 230,
+    lineHeight: 25
   },
   cardText: {
     paddingTop: 90,
     paddingHorizontal: 20,
-    paddingVertical: 30,
   },
 });
