@@ -134,6 +134,6 @@ const styles = StyleSheet.create({
   },
   cardText: {
     paddingTop: 90,
-    paddingHorizontal: 20,
+    // paddingHorizontal: 20,
   },
 });

@@ -1,9 +1,5 @@
-import Animated, {
-  useAnimatedRef,
-  useAnimatedScrollHandler,
-  useSharedValue,
-} from "react-native-reanimated";
 import {
+  Alert,
   FlatList,
   StatusBar,
   StyleSheet,
@@ -12,7 +8,13 @@ import {
   ViewToken,
   useWindowDimensions,
 } from "react-native";
+import Animated, {
+  useAnimatedRef,
+  useAnimatedScrollHandler,
+  useSharedValue,
+} from "react-native-reanimated";
 
+import Button from "./Button";
 import { OnboardingItem } from "./OnboardingItem";
 import { Pagination } from "./Pagination";
 import React from "react";
@@ -58,12 +60,24 @@ export const Onboarding = () => {
         onViewableItemsChanged={onViewableItemsChanged}
       />
       <Pagination data={data} x={x} screenWidth={SCREEN_WIDTH} />
+      <View style={styles.button}>
+        <Button
+        title="Get Started"
+        onPress={() => Alert.alert("Simple Button pressed")}
+      />
+      </View>
+      
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.8,
+    flex: 1,
+    paddingHorizontal: 20,
   },
+  button: {
+    paddingTop: 110,
+    paddingBottom: 20
+  }
 });
