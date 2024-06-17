@@ -9,7 +9,7 @@ import {
 
 import { Onboarding } from "@/components/Onboarding";
 
-const imagePath = require("@/assets/images/background.png")
+const imagePath = require("@/assets/images/background.png");
 
 export default function OnboardingScreen() {
   return (
@@ -19,8 +19,7 @@ export default function OnboardingScreen() {
         source={imagePath}
         resizeMode="cover"
       >
-
-       <Onboarding /> 
+        <Onboarding />
       </ImageBackground>
     </View>
   );

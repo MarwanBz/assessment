@@ -74,10 +74,10 @@ export const Onboarding = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 20,
   },
   button: {
     paddingTop: 110,
-    paddingBottom: 20
+    paddingBottom: 20,
+    paddingHorizontal: 20
   }
 });

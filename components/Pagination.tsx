@@ -73,8 +73,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-start",
-    // paddingHorizontal: 20,
     paddingTop: 0,
+    marginLeft: 20
   },
   dots: {
     width: 10,
