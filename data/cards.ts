@@ -10,7 +10,7 @@ export const data: Cards[] = [
     id: 1,
     title: "Monitor & Improve Your Credit",
     image: require("@/assets/images/img1.png"),
-    description: "Securely trak and imporve your credit score effortlessly",
+    description: "Securely track and improve your credit score effortlessly",
   },
   {
     id: 2,
