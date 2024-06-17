@@ -1,5 +1,9 @@
+import Animated, {
+  useAnimatedRef,
+  useAnimatedScrollHandler,
+  useSharedValue,
+} from "react-native-reanimated";
 import {
-  Animated,
   FlatList,
   StatusBar,
   StyleSheet,
@@ -8,7 +12,6 @@ import {
   ViewToken,
   useWindowDimensions,
 } from "react-native";
-import { useAnimatedRef, useAnimatedScrollHandler, useSharedValue } from "react-native-reanimated";
 
 import { OnboardingItem } from "./OnboardingItem";
 import { Pagination } from "./Pagination";
@@ -44,7 +47,7 @@ export const Onboarding = () => {
         data={data}
         keyExtractor={(item) => String(item.id)}
         renderItem={({ item, index }) => (
-          <OnboardingItem   card={item} />
+          <OnboardingItem index={index} item={item} x={x} />
         )}
         onScroll={onScroll}
         scrollEventThrottle={16}

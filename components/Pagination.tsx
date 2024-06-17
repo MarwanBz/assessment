@@ -8,6 +8,7 @@ import { StyleSheet, View } from "react-native";
 
 import React from "react";
 import { type Cards } from "@/data/cards";
+import { Colors } from "@/constants/Colors";
 
 type PaginationDotsProps = {
   index: number;
@@ -35,7 +36,7 @@ const PaginationDots = ({ index, x, screenWidth }: PaginationDotsProps) => {
         index * screenWidth,
         (index + 1) * screenWidth,
       ],
-      [0.5, 1, 0.5],
+      [ 1,1 ],
       Extrapolate.CLAMP
     );
     return {
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: 10,
-    backgroundColor: "#000",
+    backgroundColor: Colors.light.text,
     marginHorizontal: 4,
   },
 });
