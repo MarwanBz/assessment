@@ -20,6 +20,7 @@ import { Pagination } from "./Pagination";
 import React from "react";
 // import { Cards,type data }  from "@/data/cards";
 import { data } from "@/data/cards";
+import { router } from "expo-router";
 
 export const Onboarding = () => {
   const { width: SCREEN_WIDTH } = useWindowDimensions();
@@ -63,7 +64,7 @@ export const Onboarding = () => {
       <View style={styles.button}>
         <Button
         title="Get Started"
-        onPress={() => Alert.alert("Simple Button pressed")}
+        onPress={() => router.push('/login')}
       />
       </View>
       
