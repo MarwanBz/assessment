@@ -1,10 +1,12 @@
 import {
+  Pressable,
   TextInput as RNTextInput,
   StyleProp,
   StyleSheet,
   Text,
   TextInputProps,
   TextStyle,
+  TouchableOpacity,
   View
 } from "react-native";
 
@@ -16,8 +18,11 @@ interface Props extends TextInputProps {
   style?: StyleProp<TextStyle>;
   onChangeText?: (text: string) => void;
   placeholder?: string;
+  onPress?: () => void;
   containerStyle?: Object;
   icon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
+  secureTextEntry?: boolean;
 }
 
 const TextInput: React.FC<Props> = ({
@@ -27,10 +32,13 @@ const TextInput: React.FC<Props> = ({
   placeholder,
   containerStyle,
   icon,
+  rightIcon,
+  secureTextEntry,
+  onPress,
   ...props
 }) => {
   return (
-    <View>
+    <View style={[styles.outerContainer, style]}>
       <View style={styles.inputContainer}>
         {icon}
         <RNTextInput
@@ -38,17 +46,22 @@ const TextInput: React.FC<Props> = ({
           onChangeText={onChangeText}
           value={value}
           placeholder={placeholder}
-          // placeholderTextColor={"red"}
+          secureTextEntry={secureTextEntry}
         />
+        <TouchableOpacity onPress={onPress}>{rightIcon}</TouchableOpacity>
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  outerContainer: {
+    paddingTop: 20,
+  },
   inputContainer: {
     backgroundColor: "white",
-    padding: 15,
+    padding: 12,
+    paddingHorizontal:25 ,
     flexDirection: "row",
     borderRadius: 36,
     alignItems: "center",
