@@ -3,6 +3,7 @@ import { Stack, useLocalSearchParams } from "expo-router";
 
 import Button from "@/components/Button";
 import { Colors } from "@/constants/Colors";
+import { ContinueWith } from "@/components/ContinueWith";
 import { ForgetPassword } from "@/components/ForgetPassword";
 import { Ionicons } from "@expo/vector-icons";
 import { RememberMe } from "@/components/RememberMe";
@@ -57,11 +58,12 @@ const Login = () => {
           />
           <View style={styles.fields}>
             <RememberMe />
-            <ForgetPassword />
+            <ForgetPassword forgetPassword={"Forgot Password?"} />
           </View>
           <View style={styles.loginButton}>
             <Button title="Log in" onPress="" />
           </View>
+          <ContinueWith />
         </View>
       </ImageBackground>
     </View>
