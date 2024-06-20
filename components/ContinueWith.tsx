@@ -7,7 +7,7 @@ import React from "react";
 import SocialMediaPlatform from "./SocialMediaPlatform";
 import { router } from "expo-router";
 
-export const ContinueWith = () => {
+export const ContinueWith = ({subtitle,signup}) => {
   return (
     <View style={styles.container}>
       <View style={styles.linesWithText}>
@@ -30,11 +30,11 @@ export const ContinueWith = () => {
         />
       </View>
       <View style={styles.notHaveAccount}>
-        <Text style={styles.text}>Do't Have an account? </Text>
+        <Text style={styles.text}>{subtitle + "? "}</Text>
         <Pressable onPress={() => {
           router.push("/signup")
         }} >
-          <Text style={styles.signin}>Sign up</Text>
+          <Text style={styles.signin}>{signup}</Text>
         </Pressable>
       </View>
     </View>
@@ -43,7 +43,7 @@ export const ContinueWith = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 20,
+    paddingVertical: 10,
   },
   linesWithText: {
     flexDirection: "row",

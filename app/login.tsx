@@ -63,7 +63,7 @@ const Login = () => {
           <View style={styles.loginButton}>
             <Button title="Log in" onPress="" />
           </View>
-          <ContinueWith />
+          <ContinueWith subtitle={"Don't Have An Account"} signup={"Sign Up"}/>
         </View>
       </ImageBackground>
     </View>
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 20,
-    paddingTop: 110,
+    paddingTop: 80,
   },
   title: { textAlign: "center" },
   subtitle: {
