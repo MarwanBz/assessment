@@ -1,4 +1,4 @@
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import { Alert, ImageBackground, StyleSheet, Text, View } from "react-native";
 import { Stack, useLocalSearchParams } from "expo-router";
 
 import Button from "@/components/Button";
@@ -15,6 +15,10 @@ const imagePath = require("@/assets/images/bg2.png");
 
 const Login = () => {
   const [hidePassword, setHidePassword] = useState(true);
+
+  const handelForgetPasswordPress = () => {
+    Alert.alert("Feature coming soon...");
+  };
   return (
     <View style={styles.image}>
       <ImageBackground
@@ -27,11 +31,10 @@ const Login = () => {
             Login
           </ThemedText>
 
-          <ThemedText type="subtitle" style={styles.subtitle}>
+          <ThemedText lightColor={Colors.light.gray} type="subtitle" style={styles.subtitle}>
             Hey, Enter your details to get log in to your account
           </ThemedText>
           <TextInput
-            style={styles.inputContainer}
             placeholder="Enter Email or Phone Number"
           />
           <TextInput
@@ -42,7 +45,6 @@ const Login = () => {
                 color={Colors.light.gray}
               />
             }
-            style={styles.outerContainer}
             placeholder="Password"
             secureTextEntry={!hidePassword}
             onPress={() => {
@@ -58,7 +60,7 @@ const Login = () => {
           />
           <View style={styles.fields}>
             <RememberMe />
-            <ForgetPassword forgetPassword={"Forgot Password?"} />
+            <ForgetPassword onPress={handelForgetPasswordPress}  title={"Forgot Password?"} />
           </View>
           <View style={styles.loginButton}>
             <Button title="Log in" onPress="" />

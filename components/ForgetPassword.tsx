@@ -1,11 +1,20 @@
-import { Text, View } from 'react-native'
+import { Pressable, Text, View } from 'react-native'
+import React, { FC } from 'react'
 
-import React from 'react'
+import { Colors } from '@/constants/Colors';
+import { ThemedText } from './ThemedText';
 
-export const ForgetPassword = ({forgetPassword}) => {
+interface ForgetPasswordProps {
+  title: string;
+  onPress: () => void;
+}
+
+export const ForgetPassword:React.FC<ForgetPasswordProps> = ({title,onPress}) => {
   return (
-    <View>
-      <Text>{forgetPassword}</Text>
-    </View>
+    <Pressable onPress={onPress}>
+      <View>
+        <ThemedText lightColor={Colors.light.gray}>{title}</ThemedText>
+      </View>
+    </Pressable>
   );
 }
