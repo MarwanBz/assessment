@@ -1,5 +1,5 @@
 const tintColorLight = "#fff";
-
+// TODO: rename colors based on how is it used in the app "primary / secondary / etc..."
 export const Colors = {
   light: {
     text: "#000",

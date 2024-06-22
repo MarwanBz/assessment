@@ -28,7 +28,11 @@ const Signup = () => {
             Sign Up
           </ThemedText>
 
-          <ThemedText type="subtitle" style={styles.subtitle}>
+          <ThemedText
+            lightColor={Colors.light.gray}
+            type="subtitle"
+            style={styles.subtitle}
+          >
             Hey, Enter your details to get log in to your account
           </ThemedText>
           <TextInput
@@ -70,12 +74,16 @@ const Signup = () => {
             }
           />
           <View style={styles.fields}>
-            <RememberMe />
+            <RememberMe title="Remember me" />
           </View>
           <View style={styles.loginButton}>
             <Button title="Create An Account" onPress="" />
           </View>
-          <ContinueWith subtitle={"Aleady Have An Account"} signup={"Sign In"} />
+          <ContinueWith
+            title={"OR CONTINUE WITH"}
+            subTitle="Already Have An Account"
+            signOrLog={"Sign In"}
+          />
         </View>
       </ImageBackground>
     </View>
