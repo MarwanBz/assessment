@@ -35,12 +35,14 @@ const Login = () => {
             Login
           </ThemedText>
 
-          <ThemedText lightColor={Colors.light.gray} type="subtitle" style={styles.subtitle}>
+          <ThemedText
+            lightColor={Colors.light.gray}
+            type="subtitle"
+            style={styles.subtitle}
+          >
             Hey, Enter your details to get log in to your account
           </ThemedText>
-          <TextInput
-            placeholder="Enter Email or Phone Number"
-          />
+          <TextInput placeholder="Enter Email or Phone Number" />
           <TextInput
             icon={
               <Ionicons
@@ -63,13 +65,20 @@ const Login = () => {
             }
           />
           <View style={styles.fields}>
-            <RememberMe title="Remember Me" onPress={handelRememberMePress}/>
-            <ForgetPassword onPress={handelForgetPasswordPress}  title={"Forgot Password?"} />
+            <RememberMe title="Remember Me" onPress={handelRememberMePress} />
+            <ForgetPassword
+              onPress={handelForgetPasswordPress}
+              title={"Forgot Password?"}
+            />
           </View>
           <View style={styles.loginButton}>
             <Button title="Log in" onPress="" />
           </View>
-          <ContinueWith subtitle={"Don't Have An Account"} signup={"Sign Up"}/>
+          <ContinueWith
+            title="OR CONTINUE WITH"
+            subTitle="Don't Have An Account"
+            signOrLog="Sign Up"
+          />
         </View>
       </ImageBackground>
     </View>

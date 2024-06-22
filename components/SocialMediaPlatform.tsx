@@ -11,9 +11,7 @@ interface Props {
 
 const SocialMediaPlatform: React.FC<Props> = ({ icon, color,onPress }) => {
   return (
-    <Pressable onPress={() => {
-      // Alert.alert("This Feature is coming soon....");
-    }}>
+    <Pressable onPress={onPress}>
       <View style={styles.container}>
         <View style={styles.cycle}>{icon}</View>
       </View>

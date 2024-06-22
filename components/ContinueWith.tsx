@@ -5,36 +5,52 @@ import { Colors } from "@/constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import SocialMediaPlatform from "./SocialMediaPlatform";
+import { ThemedText } from "./ThemedText";
 import { router } from "expo-router";
 
-export const ContinueWith = ({subtitle,signup}) => {
+interface ContinueWithProps {
+  title: string;
+  subTitle: string;
+  signOrLog: string;
+}
+export const ContinueWith: React.FC<ContinueWithProps> = ({ title, subTitle, signOrLog }) => {
+  
+  const handelSocialMediaPress = () => {
+    Alert.alert("This Feature is coming soon....");
+  }
   return (
     <View style={styles.container}>
       <View style={styles.linesWithText}>
         <View style={styles.lineLeft} />
-        <Text style={styles.continueTitle}>OR CONTINUE WITH</Text>
+        <ThemedText lightColor={Colors.light.gray} style={styles.continueTitle}>
+          {title}
+        </ThemedText>
         <View style={styles.lineRight} />
       </View>
       <View style={styles.socialMedia}>
         <SocialMediaPlatform
-          onPress={() => {
-            Alert.alert("This Feature is coming soon....");
-          }}
+          onPress={handelSocialMediaPress}
           icon={<AntDesign name="google" size={28} color="black" />}
         />
         <SocialMediaPlatform
+          onPress={handelSocialMediaPress}
           icon={<AntDesign name="apple1" size={28} color="black" />}
         />
         <SocialMediaPlatform
+          onPress={handelSocialMediaPress}
           icon={<Ionicons name="logo-facebook" size={28} color="black" />}
         />
       </View>
       <View style={styles.notHaveAccount}>
-        <Text style={styles.text}>{subtitle + "? "}</Text>
-        <Pressable onPress={() => {
-          router.push("/signup")
-        }} >
-          <Text style={styles.signin}>{signup}</Text>
+        <ThemedText lightColor={Colors.light.gray}>
+          {subTitle + "? "}
+        </ThemedText>
+        <Pressable
+          onPress={() => {
+            router.push("/signup");
+          }}
+        >
+          <ThemedText style={styles.signOrLog}>{signOrLog}</ThemedText>
         </Pressable>
       </View>
     </View>
@@ -53,7 +69,7 @@ const styles = StyleSheet.create({
   lineLeft: {
     height: 2,
     width: 90,
-    backgroundColor: Colors.light.gray,
+    backgroundColor: Colors.light.lines,
   },
   continueTitle: {
     paddingHorizontal: 20,
@@ -61,7 +77,7 @@ const styles = StyleSheet.create({
   lineRight: {
     height: 2,
     width: 90,
-    backgroundColor: Colors.light.gray,
+    backgroundColor: Colors.light.lines,
   },
   socialMedia: {
     flexDirection: "row",
@@ -74,10 +90,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     color: Colors.light.gray,
   },
-  text: {
-    color: Colors.light.gray,
+  signOrLog: {
+    fontWeight: "bold",
   },
-  signin: {
-    fontWeight: 'bold'
-  }
 });
