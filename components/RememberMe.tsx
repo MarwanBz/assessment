@@ -1,14 +1,33 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
 
+import { Colors } from "@/constants/Colors";
 import { Fontisto } from "@expo/vector-icons";
-import React from "react";
+import { ThemedText } from "./ThemedText";
 
-export const RememberMe = () => {
+interface RememberMeProps {
+  title: string;
+  onPress?: () => void;
+}
+
+// TODO: Handel component states on the parent "lifting up states in react"
+export const RememberMe: React.FC<RememberMeProps> = ({ title, onPress }) => {
+  const [rememberMe, setRememberMe] = useState(true);
+  const handelRememberMePress = () => {
+    setRememberMe(!rememberMe)
+  }
   return (
-    <View style={styles.container}>
-      <Fontisto style={styles.checkbox} name="checkbox-passive" size={18} color="black" />
-      <Text>Remember Me</Text>
-    </View>
+    <Pressable onPress={handelRememberMePress}>
+      <View style={styles.container}>
+        <Fontisto
+          style={styles.checkbox}
+          name={rememberMe ? "checkbox-passive" : "checkbox-active"}
+          size={18}
+          color={Colors.light.text}
+        />
+        <ThemedText lightColor={Colors.light.text}>{title}</ThemedText>
+      </View>
+    </Pressable>
   );
 };
 const styles = StyleSheet.create({
@@ -19,6 +38,6 @@ const styles = StyleSheet.create({
     alignContent: "center",
   },
   checkbox: {
-    marginRight: 10
-  }
+    marginRight: 10,
+  },
 });

@@ -19,6 +19,10 @@ const Login = () => {
   const handelForgetPasswordPress = () => {
     Alert.alert("Feature coming soon...");
   };
+
+  const handelRememberMePress = () => {
+    Alert.alert("Feature coming soon...");
+  }
   return (
     <View style={styles.image}>
       <ImageBackground
@@ -59,7 +63,7 @@ const Login = () => {
             }
           />
           <View style={styles.fields}>
-            <RememberMe />
+            <RememberMe title="Remember Me" onPress={handelRememberMePress}/>
             <ForgetPassword onPress={handelForgetPasswordPress}  title={"Forgot Password?"} />
           </View>
           <View style={styles.loginButton}>
