@@ -1,4 +1,5 @@
 import { Alert, ImageBackground, StyleSheet, Text, View } from "react-native";
+import { Controller, useForm } from "react-hook-form";
 import { Stack, useLocalSearchParams } from "expo-router";
 
 import Button from "@/components/Button";
@@ -15,7 +16,15 @@ const imagePath = require("@/assets/images/bg2.png");
 
 const Login = () => {
   const [hidePassword, setHidePassword] = useState(true);
-
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+  const onSubmit = (data) => {
+    Alert.alert("Successful", JSON.stringify(data));
+  };
   const handelForgetPasswordPress = () => {
     Alert.alert("Feature coming soon...");
   };
@@ -23,6 +32,7 @@ const Login = () => {
   const handelRememberMePress = () => {
     Alert.alert("Feature coming soon...");
   }
+
   return (
     <View style={styles.image}>
       <ImageBackground
@@ -42,28 +52,50 @@ const Login = () => {
           >
             Hey, Enter your details to get log in to your account
           </ThemedText>
-          <TextInput placeholder="Enter Email or Phone Number" />
-          <TextInput
-            icon={
-              <Ionicons
-                name="key-outline"
-                size={24}
-                color={Colors.light.gray}
+          <Controller
+            control={control}
+            name={"email"}
+            render={({ field: { value, onChange, onBlur } }) => (
+              <TextInput
+                placeholder="Enter Email or Phone Number"
+                value={value}
+                onChangeText={onChange}
+                onBlur={onBlur}
               />
-            }
-            placeholder="Password"
-            secureTextEntry={!hidePassword}
-            onPress={() => {
-              setHidePassword(!hidePassword);
-            }}
-            rightIcon={
-              <Ionicons
-                name={hidePassword ? "eye-outline" : "eye-off-outline"}
-                size={24}
-                color={Colors.light.gray}
-              />
-            }
+            )}
           />
+
+          <Controller
+            control={control}
+            name="password"
+            render={({ field: { value, onChange, onBlur } }) => (
+              <TextInput
+                icon={
+                  <Ionicons
+                    name="key-outline"
+                    size={24}
+                    color={Colors.light.gray}
+                  />
+                }
+                placeholder="Password"
+                secureTextEntry={!hidePassword}
+                value={value}
+                onChangeText={onChange}
+                onBlur={onBlur}
+                onPress={() => {
+                  setHidePassword(!hidePassword);
+                }}
+                rightIcon={
+                  <Ionicons
+                    name={hidePassword ? "eye-outline" : "eye-off-outline"}
+                    size={24}
+                    color={Colors.light.gray}
+                  />
+                }
+              />
+            )}
+          />
+
           <View style={styles.fields}>
             <RememberMe title="Remember Me" onPress={handelRememberMePress} />
             <ForgetPassword
@@ -72,7 +104,7 @@ const Login = () => {
             />
           </View>
           <View style={styles.loginButton}>
-            <Button title="Log in" onPress="" />
+            <Button title="Log in" onPress={handleSubmit(onSubmit)} />
           </View>
           <ContinueWith
             title="OR CONTINUE WITH"
