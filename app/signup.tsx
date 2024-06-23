@@ -1,4 +1,5 @@
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import { Alert, ImageBackground, StyleSheet, Text, View } from "react-native";
+import { Controller, useForm } from "react-hook-form";
 
 import Button from "@/components/Button";
 import { Colors } from "@/constants/Colors";
@@ -11,11 +12,32 @@ import { RememberMe } from "@/components/RememberMe";
 import TextInput from "@/components/TextInput";
 import { ThemedText } from "@/components/ThemedText";
 import { useState } from "react";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-const imagePath = require("@/assets/images/bg2.png");
+const phoneRegex = new RegExp(
+  /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
+);
+const formSchema = z.object({
+  email: z.string().email("Please enter a valid email"),
+  phone: z.string().regex(phoneRegex,"Please enter a valid phone number"),
+  password: z.string().min(8, "Password must be at least 8 characters"),
+});const imagePath = require("@/assets/images/bg2.png");
 
 const Signup = () => {
-    const [hidePassword, setHidePassword] = useState(true);
+  const [hidePassword, setHidePassword] = useState(true);
+  
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+      phone: "",
+    },
+    resolver: zodResolver(formSchema),
+  });
+  const onSubmit = (data: any) => {
+    Alert.alert("Successful", JSON.stringify(data));
+  };
   return (
     <View style={styles.image}>
       <ImageBackground
@@ -36,7 +58,8 @@ const Signup = () => {
             Hey, Enter your details to get log in to your account
           </ThemedText>
           <TextInput
-            style={styles.inputContainer}
+            control={control}
+            name={"email"}
             placeholder="Enter Email"
             icon={
               <MaterialCommunityIcons
@@ -47,11 +70,14 @@ const Signup = () => {
             }
           />
           <TextInput
-            style={styles.inputContainer}
+            control={control}
+            name={"phone"}
             placeholder="Phone Number"
             icon={<Feather name="phone" size={24} color={Colors.light.gray} />}
           />
           <TextInput
+            control={control}
+            name="password"
             icon={
               <Ionicons
                 name="key-outline"
@@ -59,7 +85,6 @@ const Signup = () => {
                 color={Colors.light.gray}
               />
             }
-            style={styles.outerContainer}
             placeholder="Password"
             secureTextEntry={!hidePassword}
             onPress={() => {
@@ -77,7 +102,10 @@ const Signup = () => {
             <RememberMe title="Remember me" />
           </View>
           <View style={styles.loginButton}>
-            <Button title="Create An Account" onPress="" />
+            <Button
+              title="Create An Account"
+              onPress={handleSubmit(onSubmit)}
+            />
           </View>
           <ContinueWith
             title={"OR CONTINUE WITH"}
@@ -107,7 +135,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     paddingVertical: 20,
     paddingHorizontal: 30,
-    paddingBottom: 50,
+    paddingBottom: 20,
   },
   loginButton: {
     marginVertical: 20,

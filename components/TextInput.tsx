@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
   errorMessage: {
     color: "red",
-    padding: 3,
+    fontSize: 11
   },
 });
 
