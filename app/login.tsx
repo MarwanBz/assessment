@@ -31,7 +31,7 @@ const Login = () => {
     },
     resolver: zodResolver(formSchema),
   });
-  const onSubmit = (data) => {
+  const onSubmit = (data:any) => {
     Alert.alert("Successful", JSON.stringify(data));
   };
   const handelForgetPasswordPress = () => {
