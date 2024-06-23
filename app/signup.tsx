@@ -111,6 +111,7 @@ const Signup = () => {
             title={"OR CONTINUE WITH"}
             subTitle="Already Have An Account"
             signOrLog={"Sign In"}
+            link={"/login"}
           />
         </View>
       </ImageBackground>

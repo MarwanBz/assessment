@@ -11,9 +11,10 @@ import { router } from "expo-router";
 interface ContinueWithProps {
   title: string;
   subTitle: string;
-  signOrLog: string;
+  signOrLog: string
+  link: string;
 }
-export const ContinueWith: React.FC<ContinueWithProps> = ({ title, subTitle, signOrLog }) => {
+export const ContinueWith: React.FC<ContinueWithProps> = ({ title, subTitle, signOrLog,link }) => {
   
   const handelSocialMediaPress = () => {
     Alert.alert("This Feature is coming soon....");
@@ -47,7 +48,7 @@ export const ContinueWith: React.FC<ContinueWithProps> = ({ title, subTitle, sig
         </ThemedText>
         <Pressable
           onPress={() => {
-            router.push("/signup");
+            router.push(link);
           }}
         >
           <ThemedText style={styles.signOrLog}>{signOrLog}</ThemedText>
