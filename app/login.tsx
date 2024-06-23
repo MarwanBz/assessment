@@ -11,16 +11,25 @@ import { RememberMe } from "@/components/RememberMe";
 import TextInput from "@/components/TextInput";
 import { ThemedText } from "@/components/ThemedText";
 import { useState } from "react";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const formSchema = z.object({
+  email: z.string().email("Please enter a valid email"),
+  password: z.string().min(8, "Password must be at least 8 characters"),
+});
 
 const imagePath = require("@/assets/images/bg2.png");
 
 const Login = () => {
   const [hidePassword, setHidePassword] = useState(true);
+  
   const { control, handleSubmit } = useForm({
     defaultValues: {
       email: "",
       password: "",
     },
+    resolver: zodResolver(formSchema),
   });
   const onSubmit = (data) => {
     Alert.alert("Successful", JSON.stringify(data));
@@ -52,48 +61,35 @@ const Login = () => {
           >
             Hey, Enter your details to get log in to your account
           </ThemedText>
-          <Controller
-            control={control}
+
+          <TextInput
             name={"email"}
-            render={({ field: { value, onChange, onBlur } }) => (
-              <TextInput
-                placeholder="Enter Email or Phone Number"
-                value={value}
-                onChangeText={onChange}
-                onBlur={onBlur}
-              />
-            )}
+            placeholder="Enter Email or Phone Number"
+            control={control}
           />
 
-          <Controller
+          <TextInput
             control={control}
             name="password"
-            render={({ field: { value, onChange, onBlur } }) => (
-              <TextInput
-                icon={
-                  <Ionicons
-                    name="key-outline"
-                    size={24}
-                    color={Colors.light.gray}
-                  />
-                }
-                placeholder="Password"
-                secureTextEntry={!hidePassword}
-                value={value}
-                onChangeText={onChange}
-                onBlur={onBlur}
-                onPress={() => {
-                  setHidePassword(!hidePassword);
-                }}
-                rightIcon={
-                  <Ionicons
-                    name={hidePassword ? "eye-outline" : "eye-off-outline"}
-                    size={24}
-                    color={Colors.light.gray}
-                  />
-                }
+            icon={
+              <Ionicons
+                name="key-outline"
+                size={24}
+                color={Colors.light.gray}
               />
-            )}
+            }
+            placeholder="Password"
+            secureTextEntry={!hidePassword}
+            onPress={() => {
+              setHidePassword(!hidePassword);
+            }}
+            rightIcon={
+              <Ionicons
+                name={hidePassword ? "eye-outline" : "eye-off-outline"}
+                size={24}
+                color={Colors.light.gray}
+              />
+            }
           />
 
           <View style={styles.fields}>
