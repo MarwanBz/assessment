@@ -1,5 +1,4 @@
-import { Alert, ImageBackground, StyleSheet, Text, View } from "react-native";
-import { Controller, useForm } from "react-hook-form";
+import { Alert, ImageBackground, StyleSheet, View } from "react-native";
 
 import Button from "@/components/Button";
 import { Colors } from "@/constants/Colors";
@@ -9,6 +8,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { RememberMe } from "@/components/RememberMe";
 import TextInput from "@/components/TextInput";
 import { ThemedText } from "@/components/ThemedText";
+import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -30,9 +30,11 @@ const Login = () => {
     },
     resolver: zodResolver(formSchema),
   });
+  
   const onSubmit = (data:any) => {
     Alert.alert("Successful", JSON.stringify(data));
   };
+  
   const handelForgetPasswordPress = () => {
     Alert.alert("Feature coming soon...");
   };
