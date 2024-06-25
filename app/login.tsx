@@ -1,6 +1,5 @@
 import { Alert, ImageBackground, StyleSheet, Text, View } from "react-native";
 import { Controller, useForm } from "react-hook-form";
-import { Stack, useLocalSearchParams } from "expo-router";
 
 import Button from "@/components/Button";
 import { Colors } from "@/constants/Colors";

@@ -18,7 +18,6 @@ import Button from "./Button";
 import { OnboardingItem } from "./OnboardingItem";
 import { Pagination } from "./Pagination";
 import React from "react";
-// import { Cards,type data }  from "@/data/cards";
 import { data } from "@/data/cards";
 import { router } from "expo-router";
 

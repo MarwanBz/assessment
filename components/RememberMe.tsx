@@ -10,7 +10,7 @@ interface RememberMeProps {
   onPress?: () => void;
 }
 
-// TODO: Handel component states on the parent "lifting up states in react"
+// TODO: Research Handel component states on the parent "lifting up states in react"
 export const RememberMe: React.FC<RememberMeProps> = ({ title, onPress }) => {
   const [rememberMe, setRememberMe] = useState(true);
   const handelRememberMePress = () => {
