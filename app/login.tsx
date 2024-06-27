@@ -1,4 +1,4 @@
-import { Alert, ImageBackground, StyleSheet, View } from "react-native";
+import { Alert, ImageBackground, View } from "react-native";
 
 import Button from "@/components/Button";
 import { Colors } from "@/constants/Colors";
@@ -8,6 +8,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { RememberMe } from "@/components/RememberMe";
 import TextInput from "@/components/TextInput";
 import { ThemedText } from "@/components/ThemedText";
+import sharedStyles from "../style/sharedStyles";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { z } from "zod";
@@ -22,7 +23,7 @@ const imagePath = require("@/assets/images/bg2.png");
 
 const Login = () => {
   const [hidePassword, setHidePassword] = useState(true);
-  
+
   const { control, handleSubmit } = useForm({
     defaultValues: {
       email: "",
@@ -30,35 +31,35 @@ const Login = () => {
     },
     resolver: zodResolver(formSchema),
   });
-  
-  const onSubmit = (data:any) => {
+
+  const onSubmit = (data: any) => {
     Alert.alert("Successful", JSON.stringify(data));
   };
-  
+
   const handelForgetPasswordPress = () => {
     Alert.alert("Feature coming soon...");
   };
 
   const handelRememberMePress = () => {
     Alert.alert("Feature coming soon...");
-  }
+  };
 
   return (
-    <View style={styles.image}>
+    <View style={sharedStyles.pageBackgroundImage}>
       <ImageBackground
-        style={styles.image}
+        style={sharedStyles.pageBackgroundImage}
         source={imagePath}
         resizeMode="cover"
       >
-        <View style={styles.container}>
-          <ThemedText type="title" style={styles.title}>
+        <View style={sharedStyles.pageContainer}>
+          <ThemedText type="title" style={sharedStyles.title}>
             Login
           </ThemedText>
 
           <ThemedText
             lightColor={Colors.light.gray}
             type="subtitle"
-            style={styles.subtitle}
+            style={sharedStyles.subtitle}
           >
             Hey, Enter your details to get log in to your account
           </ThemedText>
@@ -93,14 +94,14 @@ const Login = () => {
             }
           />
 
-          <View style={styles.fields}>
+          <View style={sharedStyles.fields}>
             <RememberMe title="Remember Me" onPress={handelRememberMePress} />
             <ForgetPassword
               onPress={handelForgetPasswordPress}
               title={"Forgot Password?"}
             />
           </View>
-          <View style={styles.loginButton}>
+          <View style={sharedStyles.loginButton}>
             <Button title="Log in" onPress={handleSubmit(onSubmit)} />
           </View>
           <ContinueWith
@@ -114,34 +115,5 @@ const Login = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  image: {
-    flex: 1,
-    height: "100%",
-    width: "100%",
-    alignItems: "center",
-  },
-  container: {
-    flex: 1,
-    paddingHorizontal: 20,
-    paddingTop: 80,
-  },
-  title: { textAlign: "center" },
-  subtitle: {
-    textAlign: "center",
-    paddingVertical: 20,
-    paddingHorizontal: 30,
-    paddingBottom: 50,
-  },
-  loginButton: {
-    marginVertical: 20,
-  },
-  fields: {
-    paddingVertical: 20,
-    flexDirection: 'row',
-    justifyContent: "space-between"
-  },
-});
 
 export default Login;

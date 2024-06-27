@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+
 const sharedStyles = StyleSheet.create({
   flex: {
     flex: 1,
@@ -60,6 +61,31 @@ const sharedStyles = StyleSheet.create({
   },
   noWrap: {
     flexWrap: "nowrap",
+  },
+  pageBackgroundImage: {
+    flex: 1,
+    height: "100%",
+    width: "100%",
+    alignItems: "center",
+  },
+  pageContainer: {
+    flex: 1,
+    paddingHorizontal: 20,
+    paddingTop: 90,
+  },
+  title: { textAlign: "center" },
+  subtitle: {
+    textAlign: "center",
+    paddingVertical: 20,
+    paddingHorizontal: 30,
+  },
+  fields: {
+    paddingVertical: 20,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  loginButton: {
+    marginVertical: 20,
   },
 });
 export default sharedStyles;
