@@ -15,7 +15,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const formSchema = z.object({
-  email: z.string().email("Please enter a valid email"),
+  email: z.string().email("Please enter a valid email or phone number"),
   password: z.string().min(8, "Password must be at least 8 characters"),
 });
 
