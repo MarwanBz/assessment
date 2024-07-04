@@ -14,9 +14,9 @@ import Animated, {
   useSharedValue,
 } from "react-native-reanimated";
 
-import Button from "./Button";
-import { OnboardingItem } from "./OnboardingItem";
-import { Pagination } from "./Pagination";
+import Button from "../../ui/Button/Button";
+import { OnboardingItem } from "../OnboardingItem/OnboardingItem";
+import { Pagination } from "../Pagination/Pagination";
 import React from "react";
 import { data } from "@/data/cards";
 import { router } from "expo-router";
@@ -61,12 +61,8 @@ export const Onboarding = () => {
       />
       <Pagination data={data} x={x} screenWidth={SCREEN_WIDTH} />
       <View style={styles.button}>
-        <Button
-        title="Get Started"
-        onPress={() => router.push('/login')}
-      />
+        <Button title="Get Started" onPress={() => router.push("/login")} />
       </View>
-      
     </View>
   );
 };
@@ -78,6 +74,6 @@ const styles = StyleSheet.create({
   button: {
     paddingTop: 110,
     paddingBottom: 20,
-    paddingHorizontal: 20
-  }
+    paddingHorizontal: 20,
+  },
 });

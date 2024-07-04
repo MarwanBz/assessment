@@ -7,7 +7,7 @@ import {
   View,
 } from "react-native";
 
-import { Onboarding } from "@/components/Onboarding";
+import { Onboarding } from "@/components/OnboardingUi/Onbording/Onboarding";
 
 const imagePath = require("@/assets/images/background.png");
 

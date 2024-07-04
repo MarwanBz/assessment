@@ -1,0 +1,1 @@
+// use zustand for lib for state management solution between the app

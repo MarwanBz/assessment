@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 import { Colors } from "@/constants/Colors";
 import { Fontisto } from "@expo/vector-icons";
-import { ThemedText } from "./ThemedText";
+import { ThemedText } from "@/components/ui/ThemedText/ThemedText";
 
 interface RememberMeProps {
   title: string;
@@ -14,8 +14,8 @@ interface RememberMeProps {
 export const RememberMe: React.FC<RememberMeProps> = ({ title, onPress }) => {
   const [rememberMe, setRememberMe] = useState(true);
   const handelRememberMePress = () => {
-    setRememberMe(!rememberMe)
-  }
+    setRememberMe(!rememberMe);
+  };
   return (
     <Pressable onPress={handelRememberMePress}>
       <View style={styles.container}>

@@ -4,21 +4,25 @@ import { AntDesign } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
-import SocialMediaPlatform from "./SocialMediaPlatform";
-import { ThemedText } from "./ThemedText";
+import SocialMediaPlatform from "@/components/ui/SocialMediaPlatform/SocialMediaPlatform";
+import { ThemedText } from "@/components/ui/ThemedText/ThemedText";
 import { router } from "expo-router";
 
 interface ContinueWithProps {
   title: string;
   subTitle: string;
-  signOrLog: string
+  signOrLog: string;
   link: string;
 }
-export const ContinueWith: React.FC<ContinueWithProps> = ({ title, subTitle, signOrLog,link }) => {
-  
+export const ContinueWith: React.FC<ContinueWithProps> = ({
+  title,
+  subTitle,
+  signOrLog,
+  link,
+}) => {
   const handelSocialMediaPress = () => {
     Alert.alert("This Feature is coming soon....");
-  }
+  };
   return (
     <View style={styles.container}>
       <View style={styles.linesWithText}>

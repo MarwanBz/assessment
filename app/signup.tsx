@@ -1,15 +1,15 @@
 import { Alert, ImageBackground, StyleSheet, Text, View } from "react-native";
 import { Controller, useForm } from "react-hook-form";
 
-import Button from "@/components/Button";
+import Button from "@/components/ui/Button/Button";
 import { Colors } from "@/constants/Colors";
-import { ContinueWith } from "@/components/ContinueWith";
+import { ContinueWith } from "@/components/ui/ContinueWith/ContinueWith";
 import { Feather } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { RememberMe } from "@/components/RememberMe";
-import TextInput from "@/components/TextInput";
-import { ThemedText } from "@/components/ThemedText";
+import { RememberMe } from "@/components/ui/RememberMe/RememberMe";
+import TextInput from "@/components/ui/TextInput/TextInput";
+import { ThemedText } from "@/components/ui/ThemedText/ThemedText";
 import sharedStyles from "../style/sharedStyles";
 import { useState } from "react";
 import { z } from "zod";
@@ -20,13 +20,14 @@ const phoneRegex = new RegExp(
 );
 const formSchema = z.object({
   email: z.string().email("Please enter a valid email"),
-  phone: z.string().regex(phoneRegex,"Please enter a valid phone number"),
+  phone: z.string().regex(phoneRegex, "Please enter a valid phone number"),
   password: z.string().min(8, "Password must be at least 8 characters"),
-});const imagePath = require("@/assets/images/bg2.png");
+});
+const imagePath = require("@/assets/images/bg2.png");
 
 const Signup = () => {
   const [hidePassword, setHidePassword] = useState(true);
-  
+
   const { control, handleSubmit } = useForm({
     defaultValues: {
       email: "",
@@ -117,6 +118,6 @@ const Signup = () => {
       </ImageBackground>
     </View>
   );
-}
+};
 
 export default Signup;

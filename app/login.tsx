@@ -1,13 +1,13 @@
 import { Alert, ImageBackground, View } from "react-native";
 
-import Button from "@/components/Button";
+import Button from "@/components/ui/Button/Button";
 import { Colors } from "@/constants/Colors";
-import { ContinueWith } from "@/components/ContinueWith";
-import { ForgetPassword } from "@/components/ForgetPassword";
+import { ContinueWith } from "@/components/ui/ContinueWith/ContinueWith";
+import { ForgetPassword } from "@/components/ui/ForgetPassword/ForgetPassword";
 import { Ionicons } from "@expo/vector-icons";
-import { RememberMe } from "@/components/RememberMe";
-import TextInput from "@/components/TextInput";
-import { ThemedText } from "@/components/ThemedText";
+import { RememberMe } from "@/components/ui/RememberMe/RememberMe";
+import TextInput from "@/components/ui/TextInput/TextInput";
+import { ThemedText } from "@/components/ui/ThemedText/ThemedText";
 import sharedStyles from "../style/sharedStyles";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
