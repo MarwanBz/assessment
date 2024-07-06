@@ -24,7 +24,6 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const [hasLaunched, setHasLaunched] = useState(false);
 
-
   useEffect(() => {
     const getData = async () => {
       const hasLaunched = await getItemFor(HAS_LAUNCHED);
@@ -55,19 +54,13 @@ export default function RootLayout() {
     return null;
   }
 
-
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack>
-        {hasLaunched ? (
-          <Stack.Screen  name="index" options={{ headerShown: false }} />
-        ) : (
-          <View>
-            <Stack.Screen name="login" options={{ headerShown: false }} />
-            <Stack.Screen name="signup" options={{ headerShown: false }} />
-            <Stack.Screen name="+not-found" />
-          </View>
-        )}
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="signup/index" options={{ headerShown: false }} />
+        <Stack.Screen name="login/index" options={{ headerShown: false }} />
+        <Stack.Screen name="+not-found" />
       </Stack>
     </ThemeProvider>
   );

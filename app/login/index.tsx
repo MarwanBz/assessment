@@ -8,7 +8,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { RememberMe } from "@/components/ui/RememberMe/RememberMe";
 import TextInput from "@/components/ui/TextInput/TextInput";
 import { ThemedText } from "@/components/ui/ThemedText/ThemedText";
-import sharedStyles from "../style/sharedStyles";
+import sharedStyles from "../../style/sharedStyles";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { z } from "zod";
@@ -21,7 +21,7 @@ const formSchema = z.object({
 
 const imagePath = require("@/assets/images/bg2.png");
 
-const Login = () => {
+export default function Login() {
   const [hidePassword, setHidePassword] = useState(true);
 
   const { control, handleSubmit } = useForm({
@@ -116,4 +116,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+
